@@ -42,7 +42,7 @@
                     odds[index] = parseFloat($(this).html());
                 }); 
                 winner = parseInt($('#winner').val());
-                wintotal = parseInt(bets[winner] * (odds[winner] + 1));
+                wintotal = parseInt(bets[winner] * (odds[winner]));
                 var html = "<i class=\"fa fa-close w3-xlarge\" style=\"float:right;margin-top:10px;\" onclick=\"$('.w3-overlay').hide();\"></i>";
                 html += "<p>獲勝隊伍: " + $('li .w3-large').eq(winner).html() + "</p>";
                 html += "<p>每注獲得: " + wintotal / (bets[winner] / 100)  +"</p>";

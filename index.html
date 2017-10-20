@@ -34,6 +34,8 @@
                 var odds = new Array(5);
                 var total = 0;
                 var winner = 0;
+                var wintotal = 0;
+                var mosttotal = 0;
                 $('li input').each(function(index){
                     bets[index] = $.isNumeric($(this).val()) ? $(this).val() : 0;
                     total += $.isNumeric($(this).val()) ? parseInt($(this).val()) : 0;
@@ -41,13 +43,27 @@
                 $('li .odds').each(function(index){
                     odds[index] = parseFloat($(this).html());
                 }); 
-                winner = parseInt($('#winner').val());
-                wintotal = parseInt(bets[winner] * (odds[winner]));
                 var html = "<i class=\"fa fa-close w3-xlarge\" style=\"float:right;margin-top:10px;\" onclick=\"$('.w3-overlay').hide();\"></i>";
-                html += "<p>獲勝隊伍: " + $('li .w3-large').eq(winner).html() + "</p>";
-                html += "<p>每注獲得: " + wintotal / (bets[winner] / 100)  +"</p>";
-                html += "<p>隊伍獎金: " + (total - wintotal)  +"</p>";
+                for (i = 0; i < 5; i++) { 
+                    wintotal = parseInt(bets[i] * (odds[i]));
+                    if(wintotal > mosttotal)
+                    {
+                        mosttotal = wintotal;
+                        winner = i;
+                    }
+                }
+                $('li .w3-large').each(function(index){
+                    wintotal = parseInt(bets[index] * (odds[index]));
+                    if(wintotal > mosttotal)
+                    {
+                        mosttotal = wintotal;
+                        winner = index;
+                    }
+                    html += "<div class=\"w3-section\"><p>獲勝隊伍: " + $(this).html() + "</p>";
+                    html += "<p>每注獲得: " + wintotal / (bets[index] / 100)  +" | 剩餘獎金: " + (total - wintotal)  +"</p></div>";
+                });
                 $('.w3-overlay .w3-panel').html(html);
+                $('.w3-overlay .w3-section').eq(winner).addClass("w3-red");
                 $('.w3-overlay').show();
             }
         </script>
@@ -96,16 +112,6 @@
                 </li> 
             </ul>
             <div class="w3-section">
-                <div class="w3-panel w3-red w3-display-container">
-                    <p style="float:left;">獲勝隊伍:</p>
-                    <select class="w3-select" name="option" id="winner" style="float:right;width:50%;margin-top:8px">
-                        <option value="0">隊伍-瑞助</option>
-                        <option value="1">隊伍-魔獸</option>
-                        <option value="2">隊伍-小七</option>
-                        <option value="3">隊伍-阿寶</option>
-                        <option value="4">隊伍-大同</option>
-                    </select>
-                </div>
                 <button class="w3-button w3-block w3-teal" onclick="calculate();">計算</button>
             </div>
             <div class="w3-overlay">

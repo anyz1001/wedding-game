@@ -1,4 +1,63 @@
 <html>
-    <<head></head>
-    <body>Hi</body>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"/></script>
+        <script type="text/javascript">
+            function oddsChange(){
+                var bets = new Array(10);
+                $('li input').each(function(index){
+                    
+                });
+            }
+        </script>
+    </head>
+    <body>
+            <ul class="w3-ul w3-card-5">
+                <li class="w3-padding-16">
+                    <span class="w3-white w3-right" style="width:40%">
+                        下注:<input class="w3-input" type="text" onchange="oddsChange();">
+                    </span>
+                    <img src="image/1.jpg" class="w3-left w3-circle w3-margin-right" style="width:50px">
+                    <span class="w3-large">隊伍A</span><br>
+                    <span>賠率: 1賠<span class="odds">2</span></span>
+                </li>
+                <li class="w3-padding-16">
+                    <span class="w3-white w3-right" style="width:40%">
+                        下注:<input class="w3-input" type="text" onchange="oddsChange();">
+                    </span>
+                    <img src="image/2.jpg" class="w3-left w3-circle w3-margin-right" style="width:50px">
+                    <span class="w3-large">隊伍B</span><br>
+                    <span>賠率: 1賠<span class="odds">2</span></span>
+                </li>  
+                <li class="w3-padding-16">
+                    <span class="w3-white w3-right" style="width:40%">
+                        下注:<input class="w3-input" type="text" onchange="oddsChange();">
+                    </span>
+                    <img src="image/3.jpg" class="w3-left w3-circle w3-margin-right" style="width:50px">
+                    <span class="w3-large">隊伍C</span><br>
+                    <span>賠率: 1賠<span class="odds">2</span></span>
+                </li> 
+                <li class="w3-padding-16">
+                    <span class="w3-white w3-right" style="width:40%">
+                        下注:<input class="w3-input" type="text" onchange="oddsChange();">
+                    </span>
+                    <img src="image/4.jpg" class="w3-left w3-circle w3-margin-right" style="width:50px">
+                    <span class="w3-large">隊伍D</span><br>
+                    <span>賠率: 1賠<span class="odds">2</span></span>
+                </li> 
+                <li class="w3-padding-16">
+                    <span class="w3-white w3-right" style="width:40%">
+                        下注:<input class="w3-input" type="text" onchange="oddsChange();">
+                    </span>
+                    <img src="image/4.jpg" class="w3-left w3-circle w3-margin-right" style="width:50px">
+                    <span class="w3-large">隊伍E</span><br>
+                    <span>賠率: 1賠<span class="odds">2</span></span>
+                </li> 
+            </ul>
+            <div class="w3-section">
+                <button class="w3-button w3-block w3-teal">計算</button>
+            </div>
+    </body>
 </html>

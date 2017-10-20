@@ -39,13 +39,13 @@
                     total += $.isNumeric($(this).val()) ? parseInt($(this).val()) : 0;
                 });
                 $('li .odds').each(function(index){
-                    odds[index] = parseInt($(this).html());
+                    odds[index] = parseFloat($(this).html());
                 }); 
                 winner = parseInt($('#winner').val());
-                wintotal = bets[winner] * (odds[winner] + 1);
+                wintotal = parseInt(bets[winner] * (odds[winner] + 1));
                 var html = "<i class=\"fa fa-close w3-xlarge\" style=\"float:right;margin-top:10px;\" onclick=\"$('.w3-overlay').hide();\"></i>";
                 html += "<p>獲勝隊伍: " + $('li .w3-large').eq(winner).html() + "</p>";
-                html += "<p>每注獲得: " + (bets[winner] * (odds[winner] + 1)) / (bets[winner] / 100)  +"</p>";
+                html += "<p>每注獲得: " + wintotal / (bets[winner] / 100)  +"</p>";
                 html += "<p>隊伍獎金: " + (total - wintotal)  +"</p>";
                 $('.w3-overlay .w3-panel').html(html);
                 $('.w3-overlay').show();
@@ -59,7 +59,7 @@
                         下注:<input class="w3-input" type="text" onchange="oddsChange();">
                     </span>
                     <img src="image/1.jpg" class="w3-left w3-circle w3-margin-right" style="width:50px">
-                    <span class="w3-large">隊伍A</span><br>
+                    <span class="w3-large">隊伍-瑞助</span><br>
                     <span>賠率: 1賠<span class="odds">2</span></span>
                 </li>
                 <li class="w3-padding-16">
@@ -67,7 +67,7 @@
                         下注:<input class="w3-input" type="text" onchange="oddsChange();">
                     </span>
                     <img src="image/2.jpg" class="w3-left w3-circle w3-margin-right" style="width:50px">
-                    <span class="w3-large">隊伍B</span><br>
+                    <span class="w3-large">隊伍-魔獸</span><br>
                     <span>賠率: 1賠<span class="odds">2</span></span>
                 </li>  
                 <li class="w3-padding-16">
@@ -75,7 +75,7 @@
                         下注:<input class="w3-input" type="text" onchange="oddsChange();">
                     </span>
                     <img src="image/3.jpg" class="w3-left w3-circle w3-margin-right" style="width:50px">
-                    <span class="w3-large">隊伍C</span><br>
+                    <span class="w3-large">隊伍-小七</span><br>
                     <span>賠率: 1賠<span class="odds">2</span></span>
                 </li> 
                 <li class="w3-padding-16">
@@ -83,7 +83,7 @@
                         下注:<input class="w3-input" type="text" onchange="oddsChange();">
                     </span>
                     <img src="image/4.jpg" class="w3-left w3-circle w3-margin-right" style="width:50px">
-                    <span class="w3-large">隊伍D</span><br>
+                    <span class="w3-large">隊伍-阿寶</span><br>
                     <span>賠率: 1賠<span class="odds">2</span></span>
                 </li> 
                 <li class="w3-padding-16">
@@ -91,7 +91,7 @@
                         下注:<input class="w3-input" type="text" onchange="oddsChange();">
                     </span>
                     <img src="image/5.jpg" class="w3-left w3-circle w3-margin-right" style="width:50px">
-                    <span class="w3-large">隊伍E</span><br>
+                    <span class="w3-large">隊伍-大同</span><br>
                     <span>賠率: 1賠<span class="odds">2</span></span>
                 </li> 
             </ul>
@@ -99,11 +99,11 @@
                 <div class="w3-panel w3-red w3-display-container">
                     <p style="float:left;">獲勝隊伍:</p>
                     <select class="w3-select" name="option" id="winner" style="float:right;width:50%;margin-top:8px">
-                        <option value="0">隊伍A</option>
-                        <option value="1">隊伍B</option>
-                        <option value="2">隊伍C</option>
-                        <option value="3">隊伍D</option>
-                        <option value="4">隊伍E</option>
+                        <option value="0">隊伍-瑞助</option>
+                        <option value="1">隊伍-魔獸</option>
+                        <option value="2">隊伍-小七</option>
+                        <option value="3">隊伍-阿寶</option>
+                        <option value="4">隊伍-大同</option>
                     </select>
                 </div>
                 <button class="w3-button w3-block w3-teal" onclick="calculate();">計算</button>

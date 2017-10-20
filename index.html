@@ -13,17 +13,13 @@
                     total += $.isNumeric($(this).val()) ? parseInt($(this).val()) : 0;
                 });
                 $('li .odds').each(function(index){
-                    if(bets[index] == 0 || (bets[index] / total) < 0.3)
+                    if(bets[index] == 0 || (bets[index] / total) < 0.4)
                     {
                         $(this).html("2");
                     }
-                    else if((bets[index] / total) >= 0.3 && (bets[index] / total) < 0.5)
-                    {
-                        $(this).html("1.6");
-                    }
                     else
                     {
-                        $(this).html("1.2");
+                        $(this).html("1.5");
                     }
                 });                    
             }
